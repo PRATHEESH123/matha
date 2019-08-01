@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+</style>
+</head>
+<body>
+
+<ul>
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li><a href="{% url 'services' %}">Services</a></li>
+    <li><a href="{% url 'promotions'%}">Promotions</a></li>
+    <li><a href="{% url 'careers'%}">Careers</a></li>
+</ul>
+</body>
+</html>
+<br><br><br><br><br><br>
+{% block content %}
+<form action="{% url 'home' %}" method="POST" enctype= "multipart/form-data" >{% csrf_token %}
+
+    <table>
+        <tr>Make An Appointment</tr>
+        <tr>
+            <td>First Name</td>
+            <td><input type="text" name="t1" required></td>
+        </tr>
+        <tr>
+            <td>Last name</td>
+            <td><input type="text" name="t2" required></td>
+        </tr>
+        <tr> 
+            <td>Password</td>
+            <td><input type="password" name="t3" required></td>
+        </tr>
+        <br><br>
+        <tr>
+            <td><input type="submit" value="Appointment"></td>
+        </tr>
+        </table>
+</form>
+{% endblock %}
+
+
+
+
