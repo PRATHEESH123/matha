@@ -34,6 +34,21 @@ def EDIT(request,id):
         data.save()
         return HttpResponseRedirect(reverse('home'))   
     return render(request,"app/EDIT.html",{'data':data})
+def new(request,id):
+    data1=tble1.objects.get(id=id)
+    if request.method=='POST':
+        na1=request.POST.get('tittle1')
+        des1=request.POST.get('discription1')
+        li=request.POST.get('link')
+        if 'Image' in request.FILES: 
+            img=request.FILES["Image"]
+            data1.img2=img 
+        data1.tittle1=na1
+        data1.discription1=des1
+        data1.link=li
+        data1.save()
+        return HttpResponseRedirect(reverse('home'))   
+    return render(request,"app/EDIT.html",{'data1':data1})
 def home(request):
     if request.method=='POST':
         ta=request.POST.get('tittle')
@@ -56,26 +71,8 @@ def fun(request):
         ta1=request.POST.get('tittle1')
         im2=request.FILES['image2']
         di1=request.POST.get('discription1')
-        data1=tble1.objects.create(tittle1=ta1,img2=im2,discription1=di1)
+        li=request.POST.get('link')
+        data1=tble1.objects.create(tittle1=ta1,img2=im2,discription1=di1,link=li)
         return HttpResponseRedirect(reverse('DETAIL'))
         # data1.save()
     return render(request,"app/home.html",{})
-def new(request,id):
-    data1=tble1.objects.get(id=id)
-    if request.method=='POST':
-        na1=request.POST.get('tittle1')
-        des1=request.POST.get('discription1')
-        if 'Image' in request.FILES: 
-            img=request.FILES["Image"]
-            data1.img2=img 
-        data1.tittle1=na1
-        data1.discription1=des1
-        data1.save()
-        return HttpResponseRedirect(reverse('home'))   
-    return render(request,"app/EDIT.html",{'data1':data1})    
-
-
-
-
-
-

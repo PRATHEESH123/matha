@@ -35,6 +35,7 @@
                 <th>Tittle</th>
                 <th>Image</th>
                 <th>Description</th>
+                <th>link</th>
                 <th>EDIT</th>
             </tr>
             {% for i in data1 %}
@@ -43,7 +44,8 @@
                     <td>{{i.tittle1}}</td>
                     <td><img src="{{i.img2}}" alt=""></td>
                     <td>{{i.discription1}}</td>
-                    <td><a href="{% url 'EDIT' id=i.id %}">EDIT</a></td>
+                    <td>{{i.link}}</td>
+                    <td><a href="{% url 'new' id=i.id %}">EDIT</a></td>
                     <!-- <td><img src="{{i.img}}" height="50" width="50"></td> -->
                 </tr>
             {% endfor %}
