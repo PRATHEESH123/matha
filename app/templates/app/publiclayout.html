@@ -29,19 +29,52 @@ li a:hover:not(.active) {
 .active {
   background-color: #4CAF50;
 }
+a, a:hover, a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+.sidebar {
+  float: left;
+  display: inline-block;
+  background-color: #333;
+  width: auto;
+  height: 100vh;
+  margin-top: 64px;;
+}
+.tab {
+  background-color: #333;
+  padding: 16px 32px;
+  color: #999;
+  width: auto;
+  display: block;
+}
+.tab:hover {
+  color: #fff;
+}
 </style>
 </head>
 <body>
-
-<ul>
-    <li><a href="{% url 'home' %}">Home</a></li>
-    <li><a href="{% url 'services' %}">Services</a></li>
-    <li><a href="{% url 'promotions'%}">Promotions</a></li>
-    <li><a href="{% url 'careers'%}">Careers</a></li>
-</ul>
+<aside class="sidebar">
+  <a href="{% url 'sliders' %}" class="tab">sliders</a>
+  <a href="{% url 'brands' %}" class="tab">brands</a>
+  <a href="{% url 'recentblogposts' %}" class="tab">Recent Blog Posts</a>
+  <a href="{% url 'stunningproject' %}" class="tab">Stunning Projects</a>
+</aside>
+<section>
+  <ul>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'services' %}">Services</a></li>
+      <li><a href="{% url 'promotions'%}">Promotions</a></li>
+      <li><a href="{% url 'careers'%}">Careers</a></li>
+  
+  </ul>
+  blah blah blah
+</section>
 </body>
 </html>
 <br><br><br><br><br><br>
+
 {% block content %}
 <form action="{% url 'home' %}" method="POST" enctype= "multipart/form-data" >{% csrf_token %}
 
@@ -66,7 +99,3 @@ li a:hover:not(.active) {
         </table>
 </form>
 {% endblock %}
-
-
-
-

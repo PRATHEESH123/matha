@@ -65,7 +65,7 @@ def home(request):
 def promotions(request):
     return render(request,"app/promotions.html",{})
 def services(request):
-    return render(request,"app/services.html",{})
+   return render(request,"app/services.html",{})
 def fun(request):
     if request.method=='POST':
         ta1=request.POST.get('tittle1')
@@ -76,3 +76,77 @@ def fun(request):
         return HttpResponseRedirect(reverse('DETAIL'))
         # data1.save()
     return render(request,"app/home.html",{})
+def sliders(request):
+    if request.method=='POST':
+        ta=request.POST.get('tittle')
+        im1=request.FILES['image1']
+        di=request.POST.get('discription')
+        li=request.POST.get('link')
+        data=tble.objects.create(tittle=ta,img1=im1,discription=di,link=li)
+        return HttpResponseRedirect(reverse('sliders'))
+    url = "http://127.0.0.1:8000/home/sliders"
+    response = urllib.request.urlopen(url)
+    data = json.loads(response.read())
+    # response1= urllib.request.urlopen(url1)
+    # data1 = json.loads(response1.read())
+    context={'data':data}
+    return render(request,"app/sliders.html",context) 
+    # return render(request,"app/sliders.html",{})
+    # url = "http://127.0.0.1:8000/tble"
+    # response = urllib.request.urlopen(url)
+    # data = json.loads(response.read())
+    # return render(request,"app/sliders.html",{'data':data}) 
+def brands(request):
+    if request.method=='POST':
+        ta1=request.POST.get('tittle1')
+        im2=request.FILES['image2']
+        di1=request.POST.get('discription1')
+        li=request.POST.get('link')
+        data1=tble1.objects.create(tittle1=ta1,img2=im2,discription1=di1,link=li)
+        return HttpResponseRedirect(reverse('brands'))
+    url1 = "http://127.0.0.1:8000/home/brands"
+    response1= urllib.request.urlopen(url1)
+    data1 = json.loads(response1.read())
+    context={'data1':data1}
+    return render(request,"app/brands.html",context) 
+    # data1.save()
+    # return render(request,"app/brands.html",{})  
+def stunningproject(request):
+        if request.method=='POST':
+            ta=request.POST.get('tittle')
+            im=request.FILES['image']
+            di=request.POST.get('discription')
+            li=request.POST.get('link')
+            data=projects.objects.create(tittle=ta,img=im,discription=di,link=li)
+            return HttpResponseRedirect(reverse('stunningproject'))
+        url = "http://127.0.0.1:8000/home/projects" 
+        response = urllib.request.urlopen(url)
+        data = json.loads(response.read())
+        return render(request,"app/stunningproject.html",{'data':data})
+def recentblogposts(request):
+        if request.method=='POST':
+            ta=request.POST.get('tittle')
+            im=request.FILES['image']
+            di=request.POST.get('discription')
+            li=request.POST.get('link')
+            data=blogs.objects.create(tittle=ta,img=im,discription=di,link=li)
+            return HttpResponseRedirect(reverse('recentblogposts'))
+        url = "http://127.0.0.1:8000/home/blogs" 
+        response = urllib.request.urlopen(url)
+        data = json.loads(response.read())
+        return render(request,"app/recentblogposts.html",{'data':data})
+def service(request):
+    if request.method=='POST':
+        ta=request.POST.get('tittle')
+        im=request.FILES['image']
+        di=request.POST.get('discription')
+        li=request.POST.get('link')
+        data=service.objects.create(tittle=ta,img=im,discription=di,link=li)
+        return HttpResponseRedirect(reverse('service'))
+    return render(request,"app/service.html",{})
+
+
+
+
+
+

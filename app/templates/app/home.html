@@ -1,56 +1,70 @@
 {% extends "app/publiclayout.html" %}
-{% block content %}
-<form action="{% url 'home' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
-    <head><b>Sliders</b></head><br><br>
-    <table>
-        <tr>
-            <td>tittle</td>
-            <td><input type="text" name="tittle" required></td>
-        </tr>
-        <tr>
-            <td>image1:</td>
-            <td><input type="file" name="image1" required></td>
-        <tr>
-            <td>description</td>
-            <td><input type="text" name="discription" required></td>
-        </tr>
-    </table>
-    <br>
-    <input type="submit" value="save"> 
-</form>
-<br><br>
 
-<header>Who we are</header>
-<p>
-    Integer pulvinar leo id viverra feugiat. Pellentesque libero ut justo, semper at tempus vel, ultrices in ligula.
-    Lorem ipsum dolor sit amet sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-</p> 
-<a href="##"> Read more</a>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
 
-<br><br>
-<form action="{% url 'fun' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
-    
-    <head><b>Meet our brands</b></head><br><br>
-    <table>
-        <tr>
-            <td>tittle</td>
-            <td><input type="text" name="tittle1" required></td>
-        </tr>
-        <tr>
-            <td>image1:</td>
-            <td><input type="file" name="image2" required></td></tr>
-        <tr>
-            <td>description</td>
-            <td><input type="text" name="discription1" required></td>
-        </tr>
-        <tr>
-            <td>link</td>
-            <td><input type="text" name="link" required></td></tr>
-        <tr></table>
-        <br>
-        <input type="submit" value="update">
-    </form>
-{% endblock %}
+li {
+  float: left;
+}
 
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
 
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+a, a:hover, a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+.sidebar {
+  float: left;
+  display: inline-block;
+  background-color: #333;
+  width: auto;
+  height: 100vh;
+  margin-top: 64px;;
+}
+.tab {
+  background-color: #333;
+  padding: 16px 32px;
+  color: #999;
+  width: auto;
+  display: block;
+}
+.tab:hover {
+  color: #fff;
+}
+</style>
+</head>
+<body>
+<aside class="sidebar">
+  <a href="{% url 'sliders' %}" class="tab">sliders</a>
+  <a href="{% url 'brands' %}" class="tab">brands</a>
+  <a href="{% url 'recentblogposts' %}" class="tab">Recent Blog Posts</a>
+  <a href="{% url 'stunningproject' %}" class="tab">Stunning Projects</a>
+</aside>
+<section>   
+    dghfh
+</section>
+</body>
+</html>

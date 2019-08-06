@@ -1,0 +1,53 @@
+<form action="{% url 'recentblogposts' %}" method="POST"></form>{% csrf_token %}
+
+<fieldset style="width: 40%">
+    <hr>
+    <table border="1">
+        <tr>
+            <th>No.</th>
+            <th>Tittle</th>
+            <th>Image</th>
+            <th>Description</th>
+            <th>link</th>
+            <th>EDIT</th>
+        </tr>
+        {% for i in data %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.tittle}}</td>
+                <td><img src="{{i.img}}" alt=""></td>
+                <td>{{i.discription}}</td>
+                <td>{{i.link}}</td>
+                <td><a href="{% url 'EDIT' id=i.id %}">EDIT</a></td>
+                <!-- <td><img src="{{i.img}}" height="50" width="50"></td> -->
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'recentblogposts' %}">Add projects</a>
+</fieldset> 
+</form>
+
+
+
+<form action="{% url 'recentblogposts' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+    
+    <head><b>Recent Blog Posts</b></head><br><br>
+    <table>
+        <tr>
+            <td>Tittle</td>
+            <td><input type="text" name="tittle" required></td>
+        </tr>
+        <tr>
+            <td>Image</td>
+            <td><input type="file" name="image" required></td></tr>
+        <tr>
+            <td>Description</td>
+            <td><input type="text" name="discription" required></td>
+        </tr>
+        <tr>
+            <td>link</td>
+            <td><input type="text" name="link" required></td></tr>
+        <tr></table>
+        <br>
+        <input type="submit" value="Save">
+    </form>

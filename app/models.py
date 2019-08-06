@@ -5,6 +5,8 @@ class tble(models.Model):
     tittle=models.CharField(max_length=50)
     img1=models.ImageField(upload_to='img',verbose_name="file",null=True,blank=True)
     discription= models.CharField(max_length=50)
+    link= models.CharField(max_length=50, default='')
+
 
     def __str__(self):
         return self.tittle
@@ -19,6 +21,29 @@ class tble1(models.Model):
     def __str__(self):
         return self.tittle1
 
+class projects(models.Model):
+    tittle=models.CharField(max_length=50)
+    img=models.ImageField(upload_to='img',verbose_name="file",null=True,blank=True)
+    discription= models.CharField(max_length=50)
+    link= models.CharField(max_length=50, default='')
 
+    def __str__(self):
+        return self.tittle
 
+class blogs(models.Model):
+    tittle=models.CharField(max_length=50)
+    img=models.ImageField(upload_to='img',verbose_name="file",null=True,blank=True)
+    discription= models.CharField(max_length=50)
+    link= models.CharField(max_length=50, default='')
 
+    def __str__(self):
+        return self.tittle
+        
+class service(models.Model):
+    tittle=models.CharField(max_length=50)
+    img=models.ImageField(upload_to='img',verbose_name="file",null=True,blank=True)
+    discription= models.CharField(max_length=50)
+    link= models.CharField(max_length=50, default='')
+
+    def __str__(self):
+        return self.tittle

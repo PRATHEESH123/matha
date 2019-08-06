@@ -26,19 +26,29 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^$',home,name='home'),
+    url(r'^stunningproject/$',stunningproject,name='stunningproject'),
     url(r'^DETAIL/$',DETAIL,name='DETAIL'),
-    url(r'^EDIT/(?P<id>[0-9]+)',EDIT,name='EDIT'),
+    url(r'^sliderdetails/EDIT/(?P<id>[0-9]+)',EDIT,name='EDIT'),
+    url(r'^sliderdetails/EDIT/$',sliders,name='sliders'),
+    url(r'^service/$',service,name='service'),
     url(r'^services/$',services,name='services'),
+    url(r'^branddetails/$',brands,name='brands'),
+    url(r'^recentblogposts/$',recentblogposts,name='recentblogposts'),
+    # url(r'^ourtestimonials/$',ourtestimonials,name='ourtestimonials'),
     url(r'^promotions/$',promotions,name='promotions'),
     url(r'^careers/$',careers,name='careers'),
     url(r'^fun/$',fun,name='fun'),
-    url(r'^tble/', views.tbleList.as_view()),
-    url(r'^tble1/', views.tble1List.as_view()),
+    url(r'^home/sliders/(?P<id>[0-9]+)', views.tbleList.as_view()),
+    url(r'^home/sliders/', views.Listtble.as_view()),
+    url(r'^home/brands/(?P<id>[0-9]+)', views.tble1List.as_view()),
+    url(r'^home/brands/',views.Listtble1.as_view()),
+    url(r'^home/projects/(?P<id>[0-9]+)', views.projectList.as_view()),
+    url(r'^home/projects/', views.project.as_view()),
+    url(r'^home/blogs/(?P<id>[0-9]+)', views.blogsList.as_view()),
+    url(r'^home/blogs/', views.blog.as_view()),
     url(r'^new/(?P<id>[0-9]+)',new,name='new'),
-
+    url(r'^$',home,name='home'),
 ]
 
 if settings.DEBUG:
-    urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)  
-
+    urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
