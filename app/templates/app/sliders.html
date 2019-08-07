@@ -1,3 +1,12 @@
+<style>
+    .button {
+        padding: 16px 32px;
+        display: block;
+        background-color: #b2b2b2;
+        border-radius: 8px;
+    }
+</style>
+
 <form action="{% url 'sliders' %}" method="POST"></form>{% csrf_token %}
 
     <fieldset style="width: 40%">
@@ -27,7 +36,7 @@
         </table>
     </fieldset> 
     <details>
-<summary>Add sliders</summary>
+<summary><div class="button">Add sliders</div></summary>
 <form action="{% url 'sliders' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
     <head><b>You can add Sliders here</b></head><br><br>
     <table>

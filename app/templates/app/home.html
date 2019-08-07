@@ -1,48 +1,13 @@
 {% extends "app/publiclayout.html" %}
 
-<!DOCTYPE html>
-<html>
-<head>
+{% block body %}
 <style>
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover:not(.active) {
-  background-color: #111;
-}
-
-.active {
-  background-color: #4CAF50;
-}
-a, a:hover, a:active {
-  color: inherit;
-  text-decoration: none;
-}
-
 .sidebar {
   float: left;
   display: inline-block;
   background-color: #333;
   width: auto;
   height: 100vh;
-  margin-top: 64px;;
 }
 .tab {
   background-color: #333;
@@ -55,16 +20,10 @@ a, a:hover, a:active {
   color: #fff;
 }
 </style>
-</head>
-<body>
 <aside class="sidebar">
-  <a href="{% url 'sliders' %}" class="tab">sliders</a>
-  <a href="{% url 'brands' %}" class="tab">brands</a>
-  <a href="{% url 'recentblogposts' %}" class="tab">Recent Blog Posts</a>
-  <a href="{% url 'stunningproject' %}" class="tab">Stunning Projects</a>
-</aside>
-<section>   
-    dghfh
-</section>
-</body>
-</html>
+    <a href="{% url 'sliders' %}" class="tab">sliders</a>
+    <a href="{% url 'brands' %}" class="tab">brands</a>
+    <a href="{% url 'recentblogposts' %}" class="tab">Recent Blog Posts</a>
+    <a href="{% url 'stunningproject' %}" class="tab">Stunning Projects</a>
+  </aside>
+{% endblock %}
