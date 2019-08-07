@@ -10,6 +10,7 @@
                 <th>Description</th>
                 <th>Link</th>
                 <th>EDIT</th>
+                <th>DELETE</th>
             </tr>
             {% for i in data %}
                 <tr>
@@ -19,15 +20,16 @@
                     <td>{{i.discription}}</td>
                     <td>{{i.link}}</td>                 
                     <td><a href="{% url 'EDIT' id=i.id %}">EDIT</a></td>
+                    <td><a href="{% url 'slidedelete' id=i.id %}">DELETE</a></td>
                     <!-- <td><img src="{{i.img}}" height="50" width="50"></td> -->
                 </tr>
             {% endfor %}
         </table>
-        <a href="{% url 'sliders' %}">Add slides</a>
     </fieldset> 
-
+    <details>
+<summary>Add sliders</summary>
 <form action="{% url 'sliders' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
-    <head><b>Sliders</b></head><br><br>
+    <head><b>You can add Sliders here</b></head><br><br>
     <table>
         <tr>
             <td>Tittle</td>
@@ -48,4 +50,5 @@
     <br>
     <input type="submit" value="save"> 
 </form>
+</details>
 <br><br>

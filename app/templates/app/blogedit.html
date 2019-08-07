@@ -1,6 +1,6 @@
-<form action="{% url 'EDIT' id=data.id %}?id=data.id" method="POST" enctype="multipart/form-data">{% csrf_token %}
+<form action="{% url 'blogedit' id=data.id %}?id=data.id" method="POST" enctype="multipart/form-data">{% csrf_token %}
     <table>
-        <header><b>You can edit your slides here..</b></header>
+        <header><b>You can edit your Blogs here..</b></header>
         <br>
         <tr>
             <td>Tittle</td>
@@ -16,7 +16,7 @@
         </tr>
         <tr>
             <td>Image</td>
-            <td><img src="{{data.img1.url}}" height="50" width="50"></td>
+            <td><img src="{{data.img.url}}" height="50" width="50"></td>
         </tr>
         <tr>
             <td>Image edit</td>

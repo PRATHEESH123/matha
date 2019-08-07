@@ -10,6 +10,7 @@
             <th>Description</th>
             <th>link</th>
             <th>EDIT</th>
+            <th>DELETE</th>
         </tr>
         {% for i in data1 %}
             <tr>
@@ -18,22 +19,18 @@
                 <td><img src="{{i.img2}}" alt=""></td>
                 <td>{{i.discription1}}</td>
                 <td>{{i.link}}</td>
-                <td><a href="{% url 'new' id=i.id %}">EDIT</a></td>
+                <td><a href="{% url 'brandedit' id=i.id %}">EDIT</a></td>
+                <td><a href="{% url 'brandelete' id=i.id %}">DELETE</a></td>
                 <!-- <td><img src="{{i.img}}" height="50" width="50"></td> -->
             </tr>
         {% endfor %}
     </table>
-    <a href="{% url 'brands' %}">Add brands</a>
-
 </fieldset> 
-
-</form>
-
-
-
+<details>
+<summary>Add brands</summary>
 <form action="{% url 'brands' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
     
-    <head><b>Meet our brands</b></head><br><br>
+    <head><b>You can add your Meet our brands</b></head><br><br>
     <table>
         <tr>
             <td>Tittle</td>
@@ -53,3 +50,4 @@
         <br>
         <input type="submit" value="Save">
     </form>
+</details>

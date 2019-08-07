@@ -46,7 +46,13 @@ urlpatterns = [
     url(r'^home/projects/', views.project.as_view()),
     url(r'^home/blogs/(?P<id>[0-9]+)', views.blogsList.as_view()),
     url(r'^home/blogs/', views.blog.as_view()),
-    url(r'^new/(?P<id>[0-9]+)',new,name='new'),
+    url(r'^brandedit/(?P<id>[0-9]+)',brandedit,name='brandedit'),
+    url(r'^blogedit/(?P<id>[0-9]+)',blogedit,name='blogedit'),
+    url(r'^projectedit/(?P<id>[0-9]+)',projectedit,name='projectedit'),
+    url(r'^delete/(?P<id>[0-9]+)',delete,name='delete'),
+    url(r'^brandelete/(?P<id>[0-9]+)',brandelete,name='brandelete'),
+    url(r'^blogdelete/(?P<id>[0-9]+)',blogdelete,name='blogdelete'),
+    url(r'^slidedelete/(?P<id>[0-9]+)',slidedelete,name='slidedelete'),
     url(r'^$',home,name='home'),
 ]
 

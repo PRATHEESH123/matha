@@ -26,29 +26,31 @@ def EDIT(request,id):
     if request.method=='POST':
         na=request.POST.get('tittle')
         des=request.POST.get('discription')
+        li=request.POST.get('link')
         if 'Image' in request.FILES: 
             img=request.FILES["Image"]
             data.img1=img 
         data.tittle=na
         data.discription=des
+        data.link=li
         data.save()
         return HttpResponseRedirect(reverse('home'))   
     return render(request,"app/EDIT.html",{'data':data})
-def new(request,id):
+def brandedit(request,id):
     data1=tble1.objects.get(id=id)
     if request.method=='POST':
-        na1=request.POST.get('tittle1')
-        des1=request.POST.get('discription1')
+        na=request.POST.get('tittle1')
+        des=request.POST.get('discription1')
         li=request.POST.get('link')
         if 'Image' in request.FILES: 
             img=request.FILES["Image"]
             data1.img2=img 
-        data1.tittle1=na1
-        data1.discription1=des1
+        data1.tittle1=na
+        data1.discription1=des
         data1.link=li
         data1.save()
         return HttpResponseRedirect(reverse('home'))   
-    return render(request,"app/EDIT.html",{'data1':data1})
+    return render(request,"app/brandedit.html",{'data1':data1})
 def home(request):
     if request.method=='POST':
         ta=request.POST.get('tittle')
@@ -144,9 +146,49 @@ def service(request):
         data=service.objects.create(tittle=ta,img=im,discription=di,link=li)
         return HttpResponseRedirect(reverse('service'))
     return render(request,"app/service.html",{})
-
-
-
-
-
-
+def blogedit(request,id):
+    data=blogs.objects.get(id=id)
+    if request.method=='POST':
+        na=request.POST.get('tittle')
+        des=request.POST.get('discription')
+        li=request.POST.get('link')
+        if 'Image' in request.FILES: 
+            img=request.FILES["Image"]
+            data.img=img 
+        data.tittle=na
+        data.discription=des
+        data.link=li
+        data.save()
+        return HttpResponseRedirect(reverse('home'))   
+    return render(request,"app/blogedit.html",{'data':data})
+def projectedit(request,id):
+    data=projects.objects.get(id=id)
+    if request.method=='POST':
+        na=request.POST.get('tittle')
+        des=request.POST.get('discription')
+        li=request.POST.get('link')
+        if 'Image' in request.FILES: 
+            img=request.FILES["Image"]
+            data.img=img 
+        data.tittle=na
+        data.discription=des
+        data.link=li
+        data.save()
+        return HttpResponseRedirect(reverse('home'))   
+    return render(request,"app/projectedit.html",{'data':data})
+def delete(request,id):
+    data=projects.objects.get(id=id).delete()
+    data1=projects.objects.all()
+    return HttpResponseRedirect(reverse('stunningproject'))
+def blogdelete(request,id):
+    data=blogs.objects.get(id=id).delete()
+    data1=blogs.objects.all()
+    return HttpResponseRedirect(reverse('recentblogposts'))
+def brandelete(request,id):
+    data=tble1.objects.get(id=id).delete()
+    data=tble1.objects.all()
+    return HttpResponseRedirect(reverse('brands')) 
+def slidedelete(request,id):
+    data=tble.objects.get(id=id).delete()
+    data=tble.objects.all()
+    return HttpResponseRedirect(reverse('sliders'))   

@@ -75,27 +75,3 @@ a, a:hover, a:active {
 </html>
 <br><br><br><br><br><br>
 
-{% block content %}
-<form action="{% url 'home' %}" method="POST" enctype= "multipart/form-data" >{% csrf_token %}
-
-    <table>
-        <tr>Make An Appointment</tr>
-        <tr>
-            <td>First Name</td>
-            <td><input type="text" name="t1" required></td>
-        </tr>
-        <tr>
-            <td>Last name</td>
-            <td><input type="text" name="t2" required></td>
-        </tr>
-        <tr> 
-            <td>Password</td>
-            <td><input type="password" name="t3" required></td>
-        </tr>
-        <br><br>
-        <tr>
-            <td><input type="submit" value="Appointment"></td>
-        </tr>
-        </table>
-</form>
-{% endblock %}

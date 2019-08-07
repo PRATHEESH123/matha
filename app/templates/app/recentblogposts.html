@@ -10,6 +10,7 @@
             <th>Description</th>
             <th>link</th>
             <th>EDIT</th>
+            <th>DELETE</th>
         </tr>
         {% for i in data %}
             <tr>
@@ -18,20 +19,20 @@
                 <td><img src="{{i.img}}" alt=""></td>
                 <td>{{i.discription}}</td>
                 <td>{{i.link}}</td>
-                <td><a href="{% url 'EDIT' id=i.id %}">EDIT</a></td>
+                <td><a href="{% url 'blogedit' id=i.id %}">EDIT</a></td>
+                <td><a href="{% url 'blogdelete' id=i.id %}">DELETE</a></td>
                 <!-- <td><img src="{{i.img}}" height="50" width="50"></td> -->
             </tr>
         {% endfor %}
     </table>
-    <a href="{% url 'recentblogposts' %}">Add projects</a>
 </fieldset> 
-</form>
-
+<details>
+<summary>Add Blog Posts</summary>
 
 
 <form action="{% url 'recentblogposts' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
     
-    <head><b>Recent Blog Posts</b></head><br><br>
+    <head><b>You can add Recent Blog Posts </b></head><br><br>
     <table>
         <tr>
             <td>Tittle</td>
@@ -51,3 +52,4 @@
         <br>
         <input type="submit" value="Save">
     </form>
+</details>
