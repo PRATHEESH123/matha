@@ -140,3 +140,5 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'img')
    
 # )
 
+import django_heroku  # noqa: E402
+django_heroku.settings(locals())
