@@ -17,13 +17,14 @@
   display: block;
 }
 .tab:hover {
-  color: #fff;
+  color: rgb(10, 8, 8);
 }
 </style>
 <aside class="sidebar">
-    <a href="{% url 'sliders' %}" class="tab">sliders</a>
-    <a href="{% url 'brands' %}" class="tab">brands</a>
+    <a href="{% url 'sliders' %}" class="tab">Sliders</a>
+    <a href="{% url 'brands' %}" class="tab">Brands</a>
     <a href="{% url 'recentblogposts' %}" class="tab">Recent Blog Posts</a>
     <a href="{% url 'stunningproject' %}" class="tab">Stunning Projects</a>
+    <a href="{% url 'backimages' %}" class="tab">Background Images</a>
   </aside>
 {% endblock %}

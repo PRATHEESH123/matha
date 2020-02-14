@@ -1,0 +1,109 @@
+<style>
+    body {
+        margin: 0;
+    }
+    ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    }
+    
+    li {
+    float: left;
+    }
+    
+    li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    }
+    
+    li a:hover:not(.active) {
+    background-color: #111;
+    }
+    
+    .active {
+    background-color: #4CAF50;
+    }
+    a, a:hover, a:active {
+    text-decoration: none;
+    }
+</style>
+
+<section>
+    <ul>
+        <li><a href="javascript:window.history.back()"><</a></li>
+        <li><a href="">Edit Your Background Images Here</a></li>
+      </ul>
+  </section>
+<form action="{% url 'imgdit' id=data.id %}?id=data.id" method="POST" enctype="multipart/form-data">{% csrf_token %}
+
+
+    <table>
+        <br>
+        <tr>
+            <td>Brand background Image(1200*480px):</td>
+            <td><img src="{{data.Brandimg.url}}" height="50" width="50"></td>
+        </tr>
+        <td>Brand background Image Edit(Size:1200*480):</td>
+        <td><input type="file" name="Image"></td>
+        <tr>
+            <td>Blog background Image(1200*480px):</td>
+            <td><img src="{{data.Blogimg.url}}" height="50" width="50"></td>
+        </tr>
+        <td>Blog background Image Edit(1200*480px):</td>
+        <td><input type="file" name="Image1"></td>
+        <tr>
+            <td>Project background Image(1200*480px):</td>
+            <td><img src="{{data.Projectimg.url}}" height="50" width="50"></td>
+        </tr>
+        <td>Project background Image Edit(1200*480px):</td>
+        <td><input type="file" name="Image2"></td>
+        <tr>
+            <td>Know Us background Image(1200*480px):</td>
+            <td><img src="{{data.Knowusimg.url}}" height="50" width="50"></td>
+        </tr>
+        <td>Know Us background Image Edit(1200*480px):</td>
+        <td><input type="file" name="Image3"></td>
+        <tr>
+            <td>Service background Image(1200*480px):</td>
+            <td><img src="{{data.Serviceimg.url}}" height="50" width="50"></td>
+        </tr>
+        <td>Service background Image Edit(1200*480px):</td>
+        <td><input type="file" name="Image4"></td>
+         <tr>
+            <td>What We Provide background Image(1200*480px):</td>
+            <td><img src="{{data.Whatweimg.url}}" height="50" width="50"></td>
+        </tr>
+        <td>What We Provide background Image Edit(1200*480px):</td>
+        <td><input type="file" name="Image5"></td>
+        <tr>
+            <td>Careers background Image(1200*480px):</td>
+            <td><img src="{{data.Careersimg.url}}" height="50" width="50"></td>
+        </tr>
+        <td>Careers background Image Edit(1200*480px):</td>
+        <td><input type="file" name="Image6"></td>
+        <tr>
+            <td>About Us background Image(1200*480px):</td>
+            <td><img src="{{data.Aboutusimg.url}}" height="50" width="50"></td>
+        </tr>
+        <td>About Us background Image Edit(1200*480px):</td>
+        <td><input type="file" name="Image7"></td>
+        <tr>
+            <td>Contact Us background Image(1200*480px):</td>
+            <td><img src="{{data.Contactusimg.url}}" height="50" width="50"></td>
+        </tr>
+        <td>Contact Us background Image Edit(1200*480px):</td>
+        <td><input type="file" name="Image8"></td>
+    </table>
+    <br><br>
+    <input type="submit" value="UPDATE">
+    </form>
+
+
+
+    

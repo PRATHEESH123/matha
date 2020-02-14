@@ -1,0 +1,108 @@
+<style>
+    .button {
+        padding: 16px 32px;
+        display: block;
+        background-color: #b2b2b2;
+        border-radius: 8px;
+    }
+    body {
+        margin: 0;
+    }
+    ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    }
+    
+    li {
+    float: left;
+    }
+    
+    li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    }
+    
+    li a:hover:not(.active) {
+    background-color: #111;
+    }
+    
+    .active {
+    background-color: #4CAF50;
+    }
+    a, a:hover, a:active {
+    text-decoration: none;
+    }
+</style>
+
+<section>
+    <ul>
+        <li><a href="javascript:window.history.back()"><</a></li>
+        <li><a href="">About Us</a></li>
+      </ul>
+  </section>
+
+
+
+<form action="{% url 'ffff' %}" method="POST"></form>{% csrf_token %}
+
+<fieldset style="width: 40%">
+<hr>
+<table border="1">
+    <tr>
+        <th>No.</th>
+        <th>Tittle</th>
+        <th>Image</th>
+        <th>Description</th>
+        <th>link</th>
+        <th>EDIT</th>
+        <th>DELETE</th>
+    </tr>
+    {% for i in data %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.tittle}}</td>
+            <td><img src="{{i.img}}" alt="" height="" width="320"></td>
+            <td>{{i.discription}}</td>
+            <td>{{i.link}}</td>
+            <td><a href="{% url 'aboutedit' id=i.id %}">EDIT</a></td>
+            <td><a href="{% url 'aboutdelete' id=i.id %}">DELETE</a></td>
+            <!-- <td><img src="{{i.img}}" height="50" width="50"></td> -->
+        </tr>
+    {% endfor %}
+</table>
+</fieldset> 
+<details>
+
+<summary><div class="button">Add About Posts</div></summary>
+
+
+<form action="{% url 'ffff' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+
+<head><b>You can add details here </b></head><br><br>
+<table>
+    <tr>
+        <td>Tittle</td>
+        <td><input type="text" name="tittle" required></td>
+    </tr>
+    <tr>
+        <td>Image(Size:520*320px)</td>
+        <td><input type="file" name="image" required></td>
+    </tr>
+    <tr>
+        <td>Description</td>
+        <td><textarea type="text" name="discription" cols="160" rows="16" required></textarea></td>
+    </tr>
+    <tr>
+        <td>link</td>
+        <td><input type="text" name="link" required></td></tr>
+    <tr></table>
+    <br>
+    <input type="submit" value="Save">
+</form>
+</details>

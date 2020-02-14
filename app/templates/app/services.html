@@ -1,50 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends "app/publiclayout.html" %}
+
+{% block body %}
 <style>
-body {
-  font-family: "Lato", sans-serif;
+.sidebar {
+  float: left;
+  display: inline-block;
+  background-color: #333;
+  width: auto;
+  height: 100vh;
 }
-
-.sidenav {
-  height: 100%;
-  width: 200px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-
-.sidenav a {
-  padding: 6px 6px 6px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
+.tab {
+  background-color: #333;
+  padding: 16px 32px;
+  color: #999;
+  width: auto;
   display: block;
 }
-
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-
-.main {
-  margin-left: 200px; /* Same as the width of the sidenav */
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+.tab:hover {
+  color: #fff;
 }
 </style>
-</head>
-<body>
+<aside class="sidebar">
+    <a href="{% url 'abcdef' %}" class="tab">Service</a>
 
-<div class="sidenav">
-    <a href="{% url 'service' %}" class="tab">Service</a>
-</div>  
-</body>
-</html> 
+  </aside>
+{% endblock %}

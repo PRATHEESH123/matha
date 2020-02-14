@@ -1,6 +1,47 @@
+<style>
+    body {
+        margin: 0;
+    }
+    ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    }
+    
+    li {
+    float: left;
+    }
+    
+    li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    }
+    
+    li a:hover:not(.active) {
+    background-color: #111;
+    }
+    
+    .active {
+    background-color: #4CAF50;
+    }
+    a, a:hover, a:active {
+    text-decoration: none;
+    }
+</style>
+
+<section>
+    <ul>
+        <li><a href="javascript:window.history.back()"><</a></li>
+        <li><a href="">EDIT Your Sliders Here</a></li>
+      </ul>
+  </section>
 <form action="{% url 'EDIT' id=data.id %}?id=data.id" method="POST" enctype="multipart/form-data">{% csrf_token %}
     <table>
-        <header><b>You can edit your slides here..</b></header>
         <br>
         <tr>
             <td>Tittle</td>
@@ -8,7 +49,7 @@
         </tr>
         <tr>
             <td>Description</td>
-            <td><input type="text" name="discription" value="{{data.discription}}"></td>
+            <td><textarea type="text" name="discription" cols="160" rows="16">{{data.discription}}</textarea></td>
         </tr>
         <tr>
             <td>Link</td>
@@ -19,14 +60,11 @@
             <td><img src="{{data.img1.url}}" height="50" width="50"></td>
         </tr>
         <tr>
-            <td>Image edit</td>
+            <td>Image Edit(Size:1200*480)</td>
             <td><input type="file" name="Image"></td>
         </tr>
     </table>
     <br><br>
     <input type="submit" value="UPDATE">
     </form>
-
-
-
     

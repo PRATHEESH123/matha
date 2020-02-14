@@ -1,0 +1,133 @@
+<style>
+    .button {
+        padding: 16px 32px;
+        display: block;
+        background-color: #b2b2b2;
+        border-radius: 8px;
+    }
+    body {
+        margin: 0;
+    }
+    ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    }
+    
+    li {
+    float: left;
+    }
+    
+    li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    }
+    
+    li a:hover:not(.active) {
+    background-color: #111;
+    }
+    
+    .active {
+    background-color: #4CAF50;
+    }
+    a, a:hover, a:active {
+    text-decoration: none;
+    }
+</style>
+
+<section>
+    <ul>
+        <li><a href="javascript:window.history.back()"><</a></li>
+        <li><a href="">Background Images</a></li>
+      </ul>
+</section>
+<form action="{% url 'backimages' %}" method="POST"></form>{% csrf_token %}
+
+<fieldset style="width: 40%">
+    <hr>
+    <table border="1">
+        <tr>
+            <th>No.</th>
+            <th>Brand background Image</th>
+            <th>Blog background Image</th>
+            <th>Project background Image</th>
+            <th>Know Us background Image</th>
+            <th>Service background Image</th>
+            <th>What We Provide background Image</th>
+            <th>Careers background Image</th>
+            <th>About Us background Image</th>
+            <th>Contact Us background Image</th>
+            <th>EDIT</th>
+            <th>DELETE</th>
+        </tr>
+        {% for i in data %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td><img src="{{i.Brandimg}}" alt="" height="" width="320"></td>
+                <td><img src="{{i.Blogimg}}" alt="" height="" width="320"></td>
+                <td><img src="{{i.Projectimg}}" alt="" height="" width="320"></td>
+                <td><img src="{{i.Knowusimg}}" alt="" height="" width="320"></td>
+                <td><img src="{{i.Serviceimg}}" alt="" height="" width="320"></td>
+                <td><img src="{{i.Whatweimg}}" alt="" height="" width="320"></td>
+                <td><img src="{{i.Careersimg}}" alt="" height="" width="320"></td>
+                <td><img src="{{i.Aboutusimg}}" alt="" height="" width="320"></td>
+                <td><img src="{{i.Contactusimg}}" alt="" height="" width="320"></td>
+                <td><a href="{% url 'imgdit' id=i.id %}">EDIT</a></td>
+                <td><a href="{% url 'imgdelete' id=i.id %}">DELETE</a></td>
+                <!-- <td><img src="{{i.img}}" height="50" width="50"></td> -->
+            </tr>
+        {% endfor %}
+    </table>
+</fieldset> 
+<details>
+<summary><div class="button">Add Background Images</div></summary>
+<form action="{% url 'backimages' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+<head><b>You can add Background Images here</b></head><br><br>
+<table> 
+    <tr>
+        <td>Brand background Image(1200*480px):</td>
+        <td><input type="file" name="Brandimg"></td>
+    </tr>
+    <tr>
+        <td>Blog background Image(1200*480px):</td>             
+        <td><input type="file" name="Blogimg"></td>
+    </tr>
+    <tr>
+        <td>Project background Image(1200*480px):</td>
+        <td><input type="file" name="Projectimg"></td>
+    </tr>
+    <tr>
+        <td>Know Us background Image(1200*480px):</td>
+        <td><input type="file" name="Knowusimg"></td>
+    </tr>
+    <tr>
+        <td>Service background Image(1200*480px):</td>
+        <td><input type="file" name="Serviceimg"></td>
+    </tr>
+    <tr>
+        <td>What We Provide background Image(1200*480px):</td>
+        <td><input type="file" name="Whatweimg"></td>
+    </tr>
+    <tr>
+        <td>Careers background Image(1200*480px):</td>
+        <td><input type="file" name="Careersimg"></td>
+    </tr>
+    <tr>
+        <td>About Us background Image(1200*480px):</td>
+        <td><input type="file" name="Aboutusimg"></td>
+    </tr>
+    <tr>
+        <td>Contact Us background Image(1200*480px):</td>
+        <td><input type="file" name="Contactusimg"></td>
+    </tr>
+</table>
+<br>
+<input type="submit" value="save">
+</form>
+</details>
+<br><br>

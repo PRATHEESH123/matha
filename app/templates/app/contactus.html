@@ -1,0 +1,66 @@
+<style>
+        body {
+            margin: 0;
+        }
+        ul {
+        list-style-type: none; 
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+        }
+        
+        li {
+        float: left;
+        }
+        
+        li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        }
+        
+        li a:hover:not(.active) {
+        background-color: #111;
+        }
+        
+        .active {
+        background-color: #4CAF50;
+        }
+        a, a:hover, a:active {
+        text-decoration: none;
+        }
+    </style>
+    
+    <section>
+        <ul>
+            <li><a href="javascript:window.history.back()"><</a></li>
+            <li><a href="">Contact Details</a></li>
+          </ul>
+      </section>
+
+<form action="{% url 'ccc' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+
+    <fieldset style="width: 40%">
+        <hr>
+        <table border="1">
+            <tr>
+                <th>No.</th>
+                <th>NAMLE</th>
+                <th>EMAIL ID</th>
+                <th>SUBJECT</th>
+                <th>MESSAGE</th>
+            </tr>
+            {% for i in data %}
+                <tr>
+                    <td>{{i.id}}</td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.subject}}</td>
+                    <td>{{i.message}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </fieldset> 

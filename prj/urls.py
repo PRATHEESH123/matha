@@ -26,18 +26,35 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^stunningproject/$',stunningproject,name='stunningproject'),
-    url(r'^DETAIL/$',DETAIL,name='DETAIL'),
-    url(r'^sliderdetails/EDIT/(?P<id>[0-9]+)',EDIT,name='EDIT'),
+    url(r'^$',index,name='index'),
+    url(r'^login',login,name='login'),
+    url(r'^logout',logout, name='logout'),
+
+
+    # home ulrs:
+    url(r'^home$',home,name='home'),
     url(r'^sliderdetails/EDIT/$',sliders,name='sliders'),
-    url(r'^service/$',service,name='service'),
-    url(r'^services/$',services,name='services'),
     url(r'^branddetails/$',brands,name='brands'),
     url(r'^recentblogposts/$',recentblogposts,name='recentblogposts'),
-    # url(r'^ourtestimonials/$',ourtestimonials,name='ourtestimonials'),
-    url(r'^promotions/$',promotions,name='promotions'),
-    url(r'^careers/$',careers,name='careers'),
-    url(r'^fun/$',fun,name='fun'),
+    url(r'^stunningproject/$',stunningproject,name='stunningproject'),
+    url(r'^backimages$',backimages,name='backimages'),
+    url(r'^imgedit/edit(?P<id>[0-9]+)',imgedit,name='imgdit'),
+    url(r'^imgdelete/(?P<id>[0-9]+)',imgdelete,name='imgdelete'),
+
+
+    # Home/edit urls:
+    url(r'^sliderdetails/EDIT/(?P<id>[0-9]+)',EDIT,name='EDIT'),
+    url(r'^brandedit/(?P<id>[0-9]+)',brandedit,name='brandedit'),
+    url(r'^blogedit/(?P<id>[0-9]+)',blogedit,name='blogedit'),
+    url(r'^projectedit/(?P<id>[0-9]+)',projectedit,name='projectedit'),
+
+    #Home/delete urls:
+    url(r'^delete/(?P<id>[0-9]+)',delete,name='delete'),
+    url(r'^brandelete/(?P<id>[0-9]+)',brandelete,name='brandelete'),
+    url(r'^blogdelete/(?P<id>[0-9]+)',blogdelete,name='blogdelete'),
+    url(r'^slidedelete/(?P<id>[0-9]+)',slidedelete,name='slidedelete'),
+
+    #Home/API/ urls:
     url(r'^home/sliders/(?P<id>[0-9]+)', views.tbleList.as_view()),
     url(r'^home/sliders/', views.Listtble.as_view()),
     url(r'^home/brands/(?P<id>[0-9]+)', views.tble1List.as_view()),
@@ -46,15 +63,106 @@ urlpatterns = [
     url(r'^home/projects/', views.project.as_view()),
     url(r'^home/blogs/(?P<id>[0-9]+)', views.blogsList.as_view()),
     url(r'^home/blogs/', views.blog.as_view()),
-    url(r'^brandedit/(?P<id>[0-9]+)',brandedit,name='brandedit'),
-    url(r'^blogedit/(?P<id>[0-9]+)',blogedit,name='blogedit'),
-    url(r'^projectedit/(?P<id>[0-9]+)',projectedit,name='projectedit'),
-    url(r'^delete/(?P<id>[0-9]+)',delete,name='delete'),
-    url(r'^brandelete/(?P<id>[0-9]+)',brandelete,name='brandelete'),
-    url(r'^blogdelete/(?P<id>[0-9]+)',blogdelete,name='blogdelete'),
-    url(r'^slidedelete/(?P<id>[0-9]+)',slidedelete,name='slidedelete'),
-    url(r'^$',home,name='home'),
+
+
+    #Service urls:
+    url(r'^services$',services,name='services'),
+    url(r'^ourservices/$',abcdef,name='abcdef'),
+
+    #Service edit urls:
+    url(r'^servicedit/(?P<id>[0-9]+)',aaa,name='servedit'),
+
+    #service delete urls:
+    url(r'^servicedelete/(?P<id>[0-9]+)',servicedelete,name='servicedelete'),
+
+
+    #Service/API/urls:
+    url(r'^services/service/(?P<id>[0-9]+)', views.serviList.as_view()),
+    url(r'^services/service/', views.servi.as_view()),
+
+
+    #Promotion urls:
+
+    url(r'^promotions$',prom,name='promotions'),
+    url(r'^ourpromotions/$',ghijkl,name='our'),
+
+
+    #Promotional API urls:
+    url(r'^promotions/promotionals/(?P<id>[0-9]+)', views.promotionalapiList.as_view()),
+    url(r'^promotions/promotionals/', views.promotionalapi.as_view()),  
+    
+    #promotion edit urls:
+    url(r'^promoedit/(?P<id>[0-9]+)',bbb,name='bbb'),
+
+    #promotion delete urls:
+    url(r'^promodelete/(?P<id>[0-9]+)',promodelete,name='promodelete'),
+    url(r'^careers$',wwww,name='careers'),
+    url(r'^opportunity/$',opportunity,name='rrrr'),
+    url(r'^contact$',contact,name='contact'),
+    #About urls:
+    url(r'^about$',ab,name='hhhh'),
+    url(r'^aboutus/$',ggggg,name='ffff'),
+
+    #About edit urls:
+    url(r'^aboutedit/(?P<id>[0-9]+)',yyyy,name='aboutedit'),
+
+    #About delete urls:
+    url(r'^aboutdelete/(?P<id>[0-9]+)',aboutdelete,name='aboutdelete'),
+
+    #About API urls:
+    url(r'^about/aboutus/(?P<id>[0-9]+)', views.aboutapiList.as_view()),
+    url(r'^about/aboutus/', views.aboutapi.as_view()), 
+
+    url(r'^ourteam/$',ourteam,name='ourteam'),
+
+    #team API urls:
+    url(r'^about/ourteam/(?P<id>[0-9]+)', views.teamapiList.as_view()),
+    url(r'^about/ourteam/', views.teamapi.as_view()), 
+    url(r'^teamdelete/(?P<id>[0-9]+)',teamdelete,name='teamdelete'),
+
+    #carrier API urls:
+    url(r'^careers/opportunity/(?P<id>[0-9]+)', views.careersapiList.as_view()),
+    url(r'^careers/opportunity/', views.careersapi.as_view()), 
+
+    url(r'^careers/edit(?P<id>[0-9]+)',opredit,name='opredit'),
+    url(r'^careers/delete/(?P<id>[0-9]+)',oprdelete,name='oprdelete'),
+
+    url(r'^teamedit/(?P<id>[0-9]+)',teamedit,name='teamedit'),
+    url(r'^contactus/$',contactus,name='ccc'),
+    url(r'^usercontact',usercontact,name='usercontact'),
+
+    url(r'^backgroundimages/(?P<id>[0-9]+)', views.backgroundimgApiList.as_view()),
+    url(r'^backgroundimages/', views.backgroundimgApi.as_view()),
+
+    url(r'^backgroundimage/brand/(?P<id>[0-9]+)', views.listbrandslist.as_view()),
+    url(r'^backgroundimage/brand/', views.listbrands.as_view()),
+
+    url(r'^backgroundimage/blog/(?P<id>[0-9]+)', views.listblogslist.as_view()),
+    url(r'^backgroundimage/blog/', views.listblogs.as_view()),
+
+
+    url(r'^backgroundimage/project/(?P<id>[0-9]+)', views.listprojectlist.as_view()),
+    url(r'^backgroundimage/project/', views.listproject.as_view()),
+
+    url(r'^backgroundimage/listknows/(?P<id>[0-9]+)', views.listknowuslist.as_view()),
+    url(r'^backgroundimage/listknows/', views.listknowus.as_view()),
+
+    url(r'^backgroundimage/service/(?P<id>[0-9]+)', views.listservicelist.as_view()),
+    url(r'^backgroundimage/service/', views.listservice.as_view()),
+
+    url(r'^backgroundimage/whatweprovide/(?P<id>[0-9]+)', views.listwhatlist.as_view()),
+    url(r'^backgroundimage/whatweprovide/', views.listwhat.as_view()),
+
+    url(r'^backgroundimage/careers/(?P<id>[0-9]+)', views.listcarlist.as_view()),
+    url(r'^backgroundimage/careers/', views.listcar.as_view()),
+
+    url(r'^backgroundimage/about/(?P<id>[0-9]+)', views.listaboutlist.as_view()),
+    url(r'^backgroundimage/about/', views.listabout.as_view()),
+
+    url(r'^backgroundimage/contact/(?P<id>[0-9]+)', views.listcontactlist.as_view()),
+    url(r'^backgroundimage/contact/', views.listcontact.as_view()),
 ]
+
 
 if settings.DEBUG:
     urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

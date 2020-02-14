@@ -1,0 +1,27 @@
+{% extends "app/publiclayout.html" %}
+
+{% block body %}
+<style>
+.sidebar {
+  float: left;
+  display: inline-block;
+  background-color: #333;
+  width: auto;
+  height: 100vh;
+}
+.tab {
+  background-color: #333;
+  padding: 16px 32px;
+  color: #999;
+  width: auto;
+  display: block;
+}
+.tab:hover {
+  color: #fff;
+}
+</style>
+<aside class="sidebar">
+    <a href="{% url 'ffff' %}" class="tab">About Us</a>
+    <a href="{% url 'ourteam' %}" class="tab">Our Team</a>
+  </aside>
+{% endblock %}

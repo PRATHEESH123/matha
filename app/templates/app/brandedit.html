@@ -1,6 +1,51 @@
+<style>
+    body {
+        margin: 0;
+    }
+    ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    }
+    
+    li {
+    float: left;
+    }
+    
+    li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    }
+    
+    li a:hover:not(.active) {
+    background-color: #111;
+    }
+    
+    .active {
+    background-color: #4CAF50;
+    }
+    a, a:hover, a:active {
+    text-decoration: none;
+    }
+</style>
+
+<section>
+    <ul>
+        <li><a href="javascript:window.history.back()"><</a></li>
+        <li><a href="">EDIT your Brands here</a></li>
+      </ul>
+  </section>
+
+
+
+
 <form action="{% url 'brandedit' id=data1.id %}?id=data.id" method="POST" enctype="multipart/form-data">{% csrf_token %}
     <table>
-        <header><b>You can edit your Brands here..</b></header>
         <br>
         <tr>
             <td>Tittle</td>
@@ -8,7 +53,7 @@
         </tr>
         <tr>
             <td>Description</td>
-            <td><input type="text" name="discription1" value="{{data1.discription1}}"></td>
+            <td><textarea type="text" name="discription1" cols="160" rows="16">{{data1.discription1}}</textarea></td>
         </tr>
         <tr>
             <td>Link</td>
@@ -19,7 +64,7 @@
             <td><img src="{{data1.img2.url}}" height="50" width="50"></td>
         </tr>
         <tr>
-            <td>Image edit</td>
+            <td>Image Edit(320*250px)</td>
             <td><input type="file" name="Image"></td>
         </tr>
     </table>

@@ -1,0 +1,76 @@
+<style>
+    body {
+        margin: 0;
+    }
+    ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    }
+    
+    li {
+    float: left;
+    }
+    
+    li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    }
+    
+    li a:hover:not(.active) {
+    background-color: #111;
+    }
+    
+    .active {
+    background-color: #4CAF50;
+    }
+    a, a:hover, a:active {
+    text-decoration: none;
+    }
+</style>
+
+<section>
+    <ul>
+        <li><a href="javascript:window.history.back()"><</a></li>
+        <li><a href="">EDIT Your Service Here</a></li>
+      </ul>
+  </section>
+
+
+
+<form action="{% url 'servedit' id=data.id %}?id=data.id" method="POST" enctype="multipart/form-data">{% csrf_token %}
+    <table>
+        <br>
+        <tr>
+            <td>Tittle</td>
+            <td><input type="text" name="tittle" value="{{data.tittle}}"></td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td><textarea type="text" name="discription" cols="160" rows="16">{{data.discription}}</textarea></td>
+        </tr>
+        <tr>
+            <td>Link</td>
+            <td><input type="text" name="link" value="{{data.link}}"></td>
+        </tr>
+        <tr>
+            <td>Image</td>
+            <td><img src="{{data.img.url}}" height="50" width="50"></td>
+        </tr>
+        <tr>
+            <td>Image Edit(Size:520*320)</td>
+            <td><input type="file" name="Image"></td>
+        </tr>
+    </table>
+    <br><br>
+    <input type="submit" value="UPDATE">
+    </form>
+
+
+
+    
