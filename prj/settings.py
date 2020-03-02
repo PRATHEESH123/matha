@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 import posixpath
+from google.oauth2 import service_account
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -131,6 +132,31 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'img')
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
+
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+GS_BUCKET_NAME = 'matha-b18b5.appspot.com'
+STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+
+
+FIREBASE_CREDENTIALS = {
+  "type": "service_account",
+  "project_id": "matha-b18b5",
+  "private_key_id": "f5e141390a807a72ac29f209e01aa5f1cdd01c36",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCWYmJ6NE1X3XQx\nJPmi2WjJmkSsF4S+OYEur5g54jJdX0KBN4nsnhNDepbqdI7Lo1w6cSTzlqYafmNb\nWSkkHFXl9Ccrj7XHwZgGlwoOiduRwmHQG/8L6MxdQ+eSDcA1yOh+g7ct0xtXRZbC\nlpA9nnGlQymbBtZyjsxtl0KzpFSUP5FvOi8653BcGWwzj9YjWE2fOvbkX9lGkohX\n+LijZ7qcAZX7FK2ZzHk/2fLJxfDusku9iNyik6bsq9Fq1SI2fOKT9bfLlaCMSPPd\nuGR/ISJT32YHgH++ajU+QyBBGbpVwA7o5MaI8X9LbjBTKRKAjbFBodL3wsUWc3wg\nKzYjb191AgMBAAECggEAMwYWm5f7VgCRV8tP1+0kHKL3AdzI8THZntl9MMaKiBu2\nGNmbNmk75/1EDzCU8oru0/VnsC5BFWQkme3ag6IJkwgP8jvEVY5d4n6ErwIfOYlW\nXqHhG01VaZ+MhoWb3aPZHnPaRvYFpMq7qDIlpoKH1KbBCxR61kuVGOnle8YZ3GJf\ntYvDwYzo0/TT6+GqBGjQ1u+zPQdC8F8W/BDshGkTxGc+pRSwMQG7a8vX1pGPEKJi\nHk9s1P0YF5uU1E/q27XjOsaPvGbV89P4jbrZBDJv5wgvPL4gxdYaDfxjVQieZW57\nCOmRdJAQ9Kmr7DHQbDua5Jx1lDsiHr9/qlq0gDhVUQKBgQDQg5uLd26Lfxbm84KM\n1uhhmlSeKp0YSSVsZaddbsUnc1bHsZnUOkHzWIStndZASFPjB1stv0oWgpPawHIl\nEd/vru2xjK+g4QQdahpRL0DVwfhLrWOLeijJO8HDHGC3i7nr4tMhkfhnwyTkJLA+\ncCh0Rpeq7T8lDG4dlcb6U2cKQwKBgQC4oc4mWa81EzF+kIgVa7g1Vf18RNp4glp3\nOvEl6KG+bh/JlgZqmZb/ggdDZNb81vuBP8MtEGVGTz/WzJgkSoE88BAlhs0alBU3\nUwUbYcvlrJDGwgkWqt8C35H5Jj4ywEwJnDxaVjxm0xb05H5NJ+GiG2vaNMf8Bz0/\newd0Af0f5wKBgG1xBk0XbKAvHngty5Hcoq/H7y3tM/MxQUE5wbSalUR1l1DM+O6Z\nfVAaX9k4hOHMlKsOi17hjiNueehRJhgq35zP9dZA/1WzhRNjQ1jlMmR/oLEn2p20\nin/Eq5ia5nCwF++laCewk+7yUASm9RJwj+snuiduyrvJYGqK2Js+91A9AoGBAKVG\nYq291rNiLQopA0h5lvpXsYQOdqsttSHKJ5hRuIgpOFdR7wh52Mt8cFgJ6tGG+Ljo\nhSTP6niX9IOpvf+umiYcl7egBfZm3N8beBTc5JMCeM8TXuNlriB6Vcd8Tm1L6kUo\nEHalf4hkKcaqy8zxiG9+sHsyiFq5eEBdN3zHUvm9AoGBALzvh9eXJ596c25XYEaE\nUiYsyxGCt48HJfe6hX5sQUHkiJ2J5PvFfnKTlIAFK+Z5s0WtQVwznS5sO/AQ5qZb\nt/z4njTGmsMgc5+jHcVChgimkKGtutnVOgepJss66l79LpnyOX6je7GWVP7hloRG\ncOafseulwwyJw0cNnWkewN8I\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-le4jr@matha-b18b5.iam.gserviceaccount.com",
+  "client_id": "102038732411640724911",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-le4jr%40matha-b18b5.iam.gserviceaccount.com"
+}
+
+GS_CREDENTIALS = service_account.Credentials.from_service_account_info(FIREBASE_CREDENTIALS)
+
+
+
+
+
 
 # CORS_ORIGIN_ALLOW_ALL = True
 # CORS_ALLOW_CREDENTIALS = True
