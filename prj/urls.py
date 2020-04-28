@@ -104,7 +104,7 @@ urlpatterns = [
     url(r'^aboutus/$',ggggg,name='ffff'),
 
     #About edit urls:
-    url(r'^aboutedit/(?P<id>[0-9]+)',yyyy,name='aboutedit'),
+    url(r'^editabout/(?P<id>[0-9]+)',yyyy,name='aboutedit'),
 
     #About delete urls:
     url(r'^aboutdelete/(?P<id>[0-9]+)',aboutdelete,name='aboutdelete'),
@@ -112,7 +112,6 @@ urlpatterns = [
     #About API urls:
     url(r'^about/aboutus/(?P<id>[0-9]+)', views.aboutapiList.as_view()),
     url(r'^about/aboutus/', views.aboutapi.as_view()), 
-
     url(r'^ourteam/$',ourteam,name='ourteam'),
 
     #team API urls:

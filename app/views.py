@@ -156,15 +156,15 @@ def brands(request):
         li=request.POST.get('link')
         data1=tble1.objects.create(tittle1=ta1,img2=im2,discription1=di1,link=li)
         return HttpResponseRedirect(reverse('brands'))
-    # url1 = "http://127.0.0.1:8000/home/brands"
-    # response1= urllib.request.urlopen(url1)
-    # data1 = json.loads(response1.read())
-    # context={'data1':data1}
-    # return render(request,"app/brands.html",context)
-    queryset=tble1.objects.all()
-    serializer_class =tble1Serializer(queryset, many =True)
-    context={'data':serializer_class.data}
+    url1 = "http://mathagroup.herokuapp.com/home/brands/"
+    response1= urllib.request.urlopen(url1)
+    data1 = json.loads(response1.read())
+    context={'data1':data1}
     return render(request,"app/brands.html",context)
+    # queryset=tble1.objects.all()
+    # serializer_class =tble1Serializer(queryset, many =True)
+    # context={'data':serializer_class.data}
+    # return render(request,"app/brands.html",context)
 
 
 
@@ -429,7 +429,7 @@ def yyyy(request,id):
         data.discription=des
         data.link=li
         data.save()
-        return HttpResponseRedirect(reverse('home'))   
+        return HttpResponseRedirect(reverse('home'))
     return render(request,"app/aboutedit.html",{'data':data})
 @login_required    
 def aboutdelete(request,id):

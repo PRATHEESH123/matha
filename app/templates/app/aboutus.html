@@ -63,21 +63,10 @@
         <th>EDIT</th>
         <th>DELETE</th>
     </tr>
-    {% for i in data %}
-        <tr>
-            <td>{{i.id}}</td>
-            <td>{{i.tittle}}</td>
-            <td><img src="{{i.img}}" alt="" height="" width="320"></td>
-            <td>{{i.discription}}</td>
-            <td>{{i.link}}</td>
-            <td><a href="{% url 'aboutedit' id=i.id %}">EDIT</a></td>
-            <td><a href="{% url 'aboutdelete' id=i.id %}">DELETE</a></td>
-            <!-- <td><img src="{{i.img}}" height="50" width="50"></td> -->
-        </tr>
-    {% endfor %}
+
 </table>
 </fieldset> 
-<details>
+<details> 
 
 <summary><div class="button">Add About Posts</div></summary>
 
@@ -106,3 +95,5 @@
     <input type="submit" value="Save">
 </form>
 </details>
+
+

@@ -48,7 +48,7 @@ class Listtble(APIView):
     def get(self,request):
         tble1=tble.objects.all() 
         serializer=tbleSerializer(tble1,many=True)
-        return Response(serializer.data)       
+        return Response(serializer.data)
 
 class tble1List(APIView):
     def get(self,request,id):
